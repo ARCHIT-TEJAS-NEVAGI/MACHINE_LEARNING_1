@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Futuristic Car Price Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Prediction</h1>
+        <form id="predict-form">
+            <div class="form-group">
+                <label for="company">Company</label>
+                <select id="company" name="company" required>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="car_model">Model</label>
+                <select id="car_model" name="car_model" required>
+                    <option value="">Select Model</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <select id="year" name="year" required>
+                    {% for y in years %}
+                        <option value="{{ y }}">{{ y }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fuel_type">Fuel Type</label>
+                <select id="fuel_type" name="fuel_type" required>
+                    {% for fuel in fuel_types %}
+                        <option value="{{ fuel }}">{{ fuel }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="kilo_driven">Kilometres Driven</label>
+                <input type="number" id="kilo_driven" name="kilo_driven" min="0" required placeholder="e.g. 35000" autofocus>
+            </div>
+            <button type="submit" id="predict-btn">Predict Price</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html> 
